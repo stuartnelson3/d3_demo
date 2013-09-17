@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     circles.enter().append('circle')
     .transition()
     .duration(750)
-    .attr('cy', 0)
+    .attr('cy', -60)
     .attr('cx', function(d,i) { return i*70 + 60; })
     .attr('r', 0)
 
