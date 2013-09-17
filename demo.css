@@ -1,0 +1,18 @@
+/* CSS declarations go here */
+.container {
+  padding-top: 40px;
+}
+.profile-picture {
+  border-radius: 10px;
+  display: block;
+  width: 90px;
+}
+
+circle {
+  fill: steelblue;
+  stroke: white;
+}
+
+text {
+  fill: black;
+}
