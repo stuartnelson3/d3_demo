@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .transition()
     .duration(750)
     .attr('cy', -60)
-    .attr('cx', function(d,i) { return i*70 + 60; })
+    .attr('cx', function(d,i) { return i*110 + 60; })
     .attr('r', 0)
     .style('fill', function(d,i) { return color(i); })
 
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     text.enter().append('text')
     .attr('y', function(d,i) { return 500; })
-    .attr('x', function(d,i) { return i*70 + 60; })
+    .attr('x', function(d,i) { return i*110 + 60; })
     .attr('dy', '.35em') // vertical-align: middle
     .attr('text-anchor', 'middle') // text-align: middle
     .text(function(d) { return d.name; });
