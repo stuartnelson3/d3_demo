@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var text = svg.selectAll('text').data(data);
 
     text.enter().append('text')
-    .attr('y', function(d,i) { return 0; })
+    .attr('y', function(d,i) { return 500; })
     .attr('x', function(d,i) { return d*60 + 13; })
     .attr('dx', -3) // padding-right
     .attr('dy', '.35em') // vertical-align: middle
