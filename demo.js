@@ -2,8 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   svg = d3.select('body').append('svg').attr('height', 420).attr('width', 960);
 
+
   addCircles = function(data) {
-    var circles = svg.selectAll('circle').data(data);
+    var color = d3.scale.category10();
+    var name = function(d) { return d.name; };
+    var circles = svg.selectAll('circle').data(data, name);
 
     circles.enter().append('circle')
     .transition()
@@ -11,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .attr('cy', -60)
     .attr('cx', function(d,i) { return i*70 + 60; })
     .attr('r', 0)
+    .style('fill', function(d,i) { return color(i); })
 
     circles.transition()
     .duration(2500)
@@ -19,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .attr('r', function(d,i) { return d.size*3; })
 
     svg.selectAll('circle')
-    .data(data)
+    .data(data, name)
     .exit()
     .transition()
     .duration(2500)
@@ -33,7 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   addText = function(data) {
-    var text = svg.selectAll('text').data(data);
+    var name = function(d) { return d.name; };
+    var text = svg.selectAll('text').data(data, name);
 
     text.enter().append('text')
     .attr('y', function(d,i) { return 500; })
@@ -48,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .text(function(d) { return d.name || 'dot'; });
 
     svg.selectAll('text')
-    .data(data)
+    .data(data, name)
     .exit()
     .transition()
     .duration(2500)
@@ -69,6 +74,13 @@ document.addEventListener('DOMContentLoaded', function() {
     {name: 'Uranus', size: 5.5},
     {name: 'Neptune', size: 4},
     {name: 'Pluto', size: 1},
+  ];
+  data2 = [
+    {name: 'Mercury', size: 4.5},
+    {name: 'Venus', size: 7},
+    {name: 'Earth', size: 3.5},
+    {name: 'Jupiter', size: 1},
+    {name: 'Pluto', size: 5}
   ];
   addCircles(data);
 
